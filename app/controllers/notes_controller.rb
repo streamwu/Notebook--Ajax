@@ -16,7 +16,10 @@ class NotesController < ApplicationController
     @note.content = params[:note][:content]
 
     if @note.save
-      redirect_to notes_url, notice: "Note created successfully."
+      respond_to do |format|
+        format.html { redirect_to notes_url, notice: "Note created successfully." }
+        format.js
+      end
     else
       render 'new'
     end
@@ -41,6 +44,27 @@ class NotesController < ApplicationController
     @note = Note.find_by(id: params[:id])
     @note.destroy
 
-    redirect_to notes_url, notice: "Note deleted."
+    respond_to do |format|
+      format.html do
+        redirect_to notes_url, notice: "Note deleted."
+      end
+      format.js do
+                     # $("#note_15").hide();
+        render :js => '$("#note_' + @note.id.to_s + '").hide();'
+      end
+    end
+
   end
 end
+
+
+
+
+
+
+
+
+
+
+
+
