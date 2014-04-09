@@ -1,0 +1,10 @@
+<li id="note_<%= note.id %>">
+  <%= note.content %>
+  <div>
+    <%= link_to edit_note_url(note) do %>
+      <i class="fa fa-edit"></i>
+    <% end %>
+
+    <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, note_url(note), method: 'delete', remote: true %>
+  </div>
+</li>

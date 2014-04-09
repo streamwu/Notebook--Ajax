@@ -1,0 +1,16 @@
+<ul>
+  <% @notes.each do |the_note| %>
+    <%= render 'row', :note => the_note %>
+  <% end %>
+</ul>
+
+
+<div style="margin-left: 12px;">
+<%= form_for Note.new, remote: true do |f| %>
+  <%= f.text_field :content, placeholder: 'Add a new aha! here', size: 50, autofocus: true %>
+<% end %>
+</div>
+
+
+
+
