@@ -1,3 +1,0 @@
-== NOTEBOOK
-
-Within this app, we are going to practice managing a CRUD resource -- only this time, with Ajax rather than with traditional HTML request/response.
